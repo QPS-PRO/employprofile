@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>أحمد مصطفى إسحق</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0d2b5e;
+    --navy-mid: #1a4a9e;
+    --gold: #c9a227;
+    --gold-light: #e8c84a;
+    --cream: #f8f5ee;
+    --white: #ffffff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Tajawal', sans-serif;
+    background: var(--cream);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 20% 20%, rgba(13,43,94,0.08) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 80%, rgba(201,162,39,0.08) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .card {
+    width: min(420px, 95vw);
+    background: var(--white);
+    border-radius: 28px;
+    overflow: hidden;
+    box-shadow:
+      0 4px 6px rgba(13,43,94,0.04),
+      0 20px 60px rgba(13,43,94,0.12),
+      0 0 0 1px rgba(201,162,39,0.15);
+    animation: rise 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(30px) scale(0.97); }
+    to   { opacity: 1; transform: translateY(0)   scale(1);    }
+  }
+
+  .header {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+    padding: 36px 28px 28px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .header::after {
+    content: '';
+    position: absolute;
+    bottom: -1px; left: 0; right: 0;
+    height: 28px;
+    background: var(--white);
+    border-radius: 28px 28px 0 0;
+  }
+
+  .header::before {
+    content: '';
+    position: absolute;
+    width: 220px; height: 220px;
+    border-radius: 50%;
+    border: 1px solid rgba(201,162,39,0.18);
+    top: -70px; left: -60px;
+    pointer-events: none;
+  }
+
+  .deco-ring {
+    position: absolute;
+    width: 140px; height: 140px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.08);
+    bottom: 10px; left: 20px;
+    pointer-events: none;
+  }
+
+  .avatar {
+    width: 68px; height: 68px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 26px;
+    font-weight: 800;
+    color: var(--navy);
+    margin-bottom: 14px;
+    box-shadow: 0 4px 16px rgba(201,162,39,0.35);
+    animation: fade 0.5s 0.25s both;
+  }
+
+  .name {
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--white);
+    line-height: 1.25;
+    margin-bottom: 10px;
+    animation: fade 0.5s 0.3s both;
+  }
+
+  .position-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(201,162,39,0.18);
+    border: 1px solid rgba(201,162,39,0.35);
+    border-radius: 20px;
+    padding: 4px 14px;
+    font-size: 13px;
+    color: var(--gold-light);
+    font-weight: 500;
+    animation: fade 0.5s 0.35s both;
+  }
+
+  @keyframes fade {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .body {
+    padding: 24px 28px 32px;
+  }
+
+  .section-title {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    opacity: 0.8;
+  }
+
+  .fields {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .field {
+    display: flex;
+    align-items: center;
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(13,43,94,0.06);
+    animation: fade 0.5s both;
+  }
+
+  .field:last-child { border-bottom: none; }
+  .field:nth-child(1) { animation-delay: 0.4s; }
+  .field:nth-child(2) { animation-delay: 0.47s; }
+  .field:nth-child(3) { animation-delay: 0.54s; }
+  .field:nth-child(4) { animation-delay: 0.61s; }
+  .field:nth-child(5) { animation-delay: 0.68s; }
+
+  .field-icon {
+    width: 36px; height: 36px;
+    border-radius: 10px;
+    background: rgba(13,43,94,0.06);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px;
+    margin-left: 14px;
+    flex-shrink: 0;
+  }
+
+  .field-content { flex: 1; }
+
+  .field-label {
+    font-size: 14px;
+    color: #888;
+    font-weight: 500;
+    margin-bottom: 2px;
+  }
+
+  .field-value {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--navy);
+  }
+</style>
+</head>
+<body>
+
+<div class="card">
+  <div class="header">
+    <div class="deco-ring"></div>
+    <div class="avatar">أ</div>
+    <div class="name">أحمد مصطفى إسحق</div>
+    <span class="position-badge">📱 مسؤول التواصل الاجتماعي</span>
+  </div>
+
+  <div class="body">
+    <div class="section-title">البيانات المهنية</div>
+    <div class="fields">
+
+      <div class="field">
+        <div class="field-icon">🌍</div>
+        <div class="field-content">
+          <div class="field-label">الجنسية</div>
+          <div class="field-value">مصري</div>
+        </div>
+      </div>
+
+      <div class="field">
+        <div class="field-icon">🎓</div>
+        <div class="field-content">
+          <div class="field-label">الدرجة العلمية</div>
+          <div class="field-value">بكالوريوس نظم معلومات إدارية</div>
+        </div>
+      </div>
+
+      <div class="field">
+        <div class="field-icon">📚</div>
+        <div class="field-content">
+          <div class="field-label">التخصص</div>
+          <div class="field-value">مصمم جرافيك</div>
+        </div>
+      </div>
+
+      <div class="field">
+        <div class="field-icon">📅</div>
+        <div class="field-content">
+          <div class="field-label">سنوات الخبرة</div>
+          <div class="field-value">10 سنوات</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
