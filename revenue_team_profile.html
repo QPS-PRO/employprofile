@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>الإيرادات والتحصيل</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0d2b5e;
+    --navy-mid: #1a4a9e;
+    --gold: #c9a227;
+    --gold-light: #e8c84a;
+    --cream: #f8f5ee;
+    --white: #ffffff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Tajawal', sans-serif;
+    background: var(--cream);
+    min-height: 100vh;
+    padding: 30px 16px;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 20% 20%, rgba(13,43,94,0.06) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 80%, rgba(201,162,39,0.06) 0%, transparent 60%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .page-wrapper {
+    position: relative;
+    z-index: 1;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 22px;
+  }
+
+  .card {
+    background: var(--white);
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow:
+      0 4px 6px rgba(13,43,94,0.04),
+      0 16px 48px rgba(13,43,94,0.10),
+      0 0 0 1px rgba(201,162,39,0.12);
+    animation: rise 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  .card:nth-child(2) { animation-delay: 0.12s; }
+  .card:nth-child(3) { animation-delay: 0.24s; }
+
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(28px) scale(0.97); }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
+  }
+
+  .card-header {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+    padding: 26px 22px 22px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .card-header::after {
+    content: '';
+    position: absolute;
+    bottom: -1px; left: 0; right: 0;
+    height: 22px;
+    background: var(--white);
+    border-radius: 24px 24px 0 0;
+  }
+
+  .card-header::before {
+    content: '';
+    position: absolute;
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    border: 1px solid rgba(201,162,39,0.15);
+    top: -80px; left: -50px;
+  }
+
+  .deco-ring {
+    position: absolute;
+    width: 110px; height: 110px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.07);
+    bottom: 8px; left: 14px;
+  }
+
+  .avatar {
+    width: 54px; height: 54px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px; font-weight: 800;
+    color: var(--navy);
+    margin-bottom: 11px;
+    box-shadow: 0 4px 14px rgba(201,162,39,0.35);
+    position: relative; z-index: 1;
+  }
+
+  .emp-name {
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--white);
+    margin-bottom: 10px;
+    position: relative; z-index: 1;
+    line-height: 1.3;
+  }
+
+  .position-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: rgba(201,162,39,0.18);
+    border: 1px solid rgba(201,162,39,0.35);
+    border-radius: 20px;
+    padding: 3px 11px;
+    font-size: 12px;
+    color: var(--gold-light);
+    font-weight: 500;
+    position: relative; z-index: 1;
+  }
+
+  .card-body {
+    padding: 18px 22px 24px;
+  }
+
+  .section-title {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: var(--gold);
+    opacity: 0.8;
+    margin-bottom: 12px;
+  }
+
+  .fields { display: flex; flex-direction: column; }
+
+  .field {
+    display: flex;
+    align-items: center;
+    padding: 11px 0;
+    border-bottom: 1px solid rgba(13,43,94,0.06);
+  }
+
+  .field:last-child { border-bottom: none; }
+
+  .field-icon {
+    width: 32px; height: 32px;
+    border-radius: 8px;
+    background: rgba(13,43,94,0.06);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px;
+    margin-left: 11px;
+    flex-shrink: 0;
+  }
+
+  .field-label {
+    font-size: 11px;
+    color: #999;
+    font-weight: 500;
+    margin-bottom: 1px;
+  }
+
+  .field-value {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--navy);
+  }
+</style>
+</head>
+<body>
+<div class="page-wrapper">
+  <div class="cards-grid">
+
+    <!-- الموظف الأول: عبدالرحمن شاكر باشعيب -->
+    <div class="card">
+      <div class="card-header">
+        <div class="deco-ring"></div>
+        <div class="avatar">ع</div>
+        <div class="emp-name">عبدالرحمن شاكر باشعيب</div>
+        <span class="position-badge">💰 مدير الإيرادات والتحصيل</span>
+      </div>
+      <div class="card-body">
+        <div class="section-title">البيانات المهنية</div>
+        <div class="fields">
+          <div class="field">
+            <div class="field-icon">🌍</div>
+            <div><div class="field-label">الجنسية</div><div class="field-value">سعودي</div></div>
+          </div>
+          <div class="field">
+            <div class="field-icon">🎓</div>
+            <div><div class="field-label">الدرجة العلمية</div><div class="field-value">بكالوريوس</div></div>
+          </div>
+          <div class="field">
+            <div class="field-icon">📋</div>
+            <div><div class="field-label">التخصص</div><div class="field-value">موارد بشرية</div></div>
+          </div>
+          <div class="field">
+            <div class="field-icon">📅</div>
+            <div><div class="field-label">سنوات الخبرة</div><div class="field-value">13 سنة</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- الموظف الثاني: عبد الرحمن كردي -->
+    <div class="card">
+      <div class="card-header">
+        <div class="deco-ring"></div>
+        <div class="avatar">ع</div>
+        <div class="emp-name">عبد الرحمن كردي</div>
+        <span class="position-badge">💰 الإيرادات والتحصيل</span>
+      </div>
+      <div class="card-body">
+        <div class="section-title">البيانات المهنية</div>
+        <div class="fields">
+          <div class="field">
+            <div class="field-icon">🌍</div>
+            <div><div class="field-label">الجنسية</div><div class="field-value">يمني</div></div>
+          </div>
+          <div class="field">
+            <div class="field-icon">🎓</div>
+            <div><div class="field-label">الدرجة العلمية</div><div class="field-value">ماجستير</div></div>
+          </div>
+          <div class="field">
+            <div class="field-icon">📊</div>
+            <div><div class="field-label">التخصص</div><div class="field-value">محاسبة</div></div>
+          </div>
+          <div class="field">
+            <div class="field-icon">📅</div>
+            <div><div class="field-label">سنوات الخبرة</div><div class="field-value">12 سنة</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- الموظف الثالث: علي أحمد التميمي -->
+    <div class="card">
+      <div class="card-header">
+        <div class="deco-ring"></div>
+        <div class="avatar">ع</div>
+        <div class="emp-name">علي أحمد التميمي</div>
+        <span class="position-badge">💰 الإيرادات والتحصيل</span>
+      </div>
+      <div class="card-body">
+        <div class="section-title">البيانات المهنية</div>
+        <div class="fields">
+          <div class="field">
+            <div class="field-icon">🌍</div>
+            <div><div class="field-label">الجنسية</div><div class="field-value">يمني</div></div>
+          </div>
+          <div class="field">
+            <div class="field-icon">🎓</div>
+            <div><div class="field-label">الدرجة العلمية</div><div class="field-value">ثانوية + دبلوم برمجة</div></div>
+          </div>
+          <div class="field">
+            <div class="field-icon">💻</div>
+            <div><div class="field-label">التخصص</div><div class="field-value">دبلوم برمجة</div></div>
+          </div>
+          <div class="field">
+            <div class="field-icon">📅</div>
+            <div><div class="field-label">سنوات الخدمة</div><div class="field-value">26 سنة</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+</body>
+</html>
